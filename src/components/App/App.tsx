@@ -12,6 +12,7 @@ function App() {
     event: React.MouseEvent<HTMLButtonElement>,
     type: VoteType
   ) => {
+    event.stopPropagation();
     switch (type) {
       case "good":
         setVotes({ ...votes, good: votes.good + 1 });
