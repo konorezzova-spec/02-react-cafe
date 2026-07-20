@@ -8,11 +8,7 @@ import Notification from "../Notification/Notification.tsx";
 
 function App() {
   const [votes, setVotes] = useState<Votes>({ good: 0, neutral: 0, bad: 0 });
-  const handleVotes = (
-    event: React.MouseEvent<HTMLButtonElement>,
-    type: VoteType
-  ) => {
-    event.stopPropagation();
+  const handleVotes = (type: VoteType) => {
     switch (type) {
       case "good":
         setVotes({ ...votes, good: votes.good + 1 });

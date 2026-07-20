@@ -2,7 +2,7 @@ import css from "./VoteOptions.module.css";
 import { type VoteType } from "../../types/votes.ts";
 
 interface VoteOptionsProps {
-  onVote: (event: React.MouseEvent<HTMLButtonElement>, type: VoteType) => void;
+  onVote: (type: VoteType) => void;
   onReset: () => void;
   canReset: boolean;
 }
@@ -14,13 +14,28 @@ export default function VoteOptions({
 }: VoteOptionsProps) {
   return (
     <div className={css.container}>
-      <button className={css.button} onClick={e => onVote(e, "good")}>
+      <button
+        className={css.button}
+        onClick={() => {
+          onVote("good");
+        }}
+      >
         Good
       </button>
-      <button className={css.button} onClick={e => onVote(e, "neutral")}>
+      <button
+        className={css.button}
+        onClick={() => {
+          onVote("neutral");
+        }}
+      >
         Neutral
       </button>
-      <button className={css.button} onClick={e => onVote(e, "bad")}>
+      <button
+        className={css.button}
+        onClick={() => {
+          onVote("bad");
+        }}
+      >
         Bad
       </button>
       {canReset && (
